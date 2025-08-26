@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Bunga Indah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fefcf9;
+      color: #4e342e;
+    }
+
+    header {
+      background-color: #d7ccc8;
+      padding: 20px 40px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .flower-card {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .flower-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .flower-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .flower-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .flower-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .flower-info h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #5d4037;
+    }
+
+    .flower-info p {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #6d4c41;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Toko Bunga Indah</h1>
+    <p>Temukan keindahan bunga untuk setiap momen spesial</p>
+  </header>
+
+  <main class="gallery" id="gallery">
+    <!-- Cards akan dimuat oleh JavaScript -->
+  </main>
+
+  <script>
+    const flowers = [
+      {
+        name: "Mawar Merah",
+        desc: "Simbol cinta dan romantisme.",
+        img: "https://source.unsplash.com/400x300/?red-rose"
+      },
+      {
+        name: "Lily Putih",
+        desc: "Keanggunan dan kesucian yang memikat.",
+        img: "https://source.unsplash.com/400x300/?white-lily"
+      },
+      {
+        name: "Tulip",
+        desc: "Pesona musim semi yang ceria.",
+        img: "https://source.unsplash.com/400x300/?tulip"
+      },
+      {
+        name: "Anggrek",
+        desc: "Eksotis dan elegan untuk kesan mewah.",
+        img: "https://source.unsplash.com/400x300/?orchid"
+      },
+      {
+        name: "Daisy",
+        desc: "Sederhana namun menawan.",
+        img: "https://source.unsplash.com/400x300/?daisy-flower"
+      },
+      {
+        name: "Lavender",
+        desc: "Aroma menenangkan dan tampilan mempesona.",
+        img: "https://source.unsplash.com/400x300/?lavender"
+      }
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    flowers.forEach(flower => {
+      const card = document.createElement('div');
+      card.className = 'flower-card';
+      card.innerHTML = `
+        <img src="${flower.img}" alt="${flower.name}">
+        <div class="flower-info">
+          <h2>${flower.name}</h2>
+          <p>${flower.desc}</p>
+        </div>
+      `;
+      gallery.appendChild(card);
+    });
+  </script>
+</body>
+
+</html>
